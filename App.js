@@ -1,60 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react'
-import { StyleSheet, Button, Text, View, Image, TextInput, Touchable, TouchableOpacity } from 'react-native';
-import Logo from './assets/favicon.png';
-import CustomInput from './components/CustomInput';
-import Styles from './styles/buttonStyle';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './pages/Login';
+import Listagem from './pages/Listagem';
+import Cadastro from './pages/Cadastro';
+
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
-
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-
-  const setEmailInputValue = (value) => {
-    setEmail(value)
-  }
-  const setPassswordInputValue = (value) => {
-    setPassword(value)
-  }
-  return (
-    <View style={styles.container}>
-      <Image
-        source={'./assets/favicon.png'}
-        style={{
-          whidth: 50,
-          height: 50
-        }}
-        />
-
-      <CustomInput
-        value={email}
-        funcao={setEmailInputValue}
-        placeholder='E-mail'
-      />
-
-      <CustomInput
-        placeholder="Senha"
-        value={password}
-        funcao={setPassswordInputValue}
-        isPassword={true}
-      />
-
-      <TouchableOpacity>
-        <View style={Styles.Button}>
-          <Text style={{color:'#FFFFFF'}}>Entrar</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Login" component={Login}/>
+                <Stack.Screen name="Listagem" component={Listagem}/>
+                <Stack.Screen name="Cadastro" component={Cadastro}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#182625'
-  },
-});

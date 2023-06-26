@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native/types"
+import { StyleSheet } from "react-native"
+
 const buttonStyle = StyleSheet.create({
     button:{
         backgroundColor: '#28403D',
@@ -11,4 +12,4 @@ const buttonStyle = StyleSheet.create({
     }
 })
 
-export default Styles;
+export default buttonStyle;
