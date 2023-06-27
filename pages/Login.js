@@ -12,9 +12,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 
 export default function App() {
-  const auth = getAuth(app);
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const auth = getAuth(app);
   const navigation = useNavigation()
 
 
